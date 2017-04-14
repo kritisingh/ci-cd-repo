@@ -1,0 +1,22 @@
+<a class="cartImg">
+  <% _.each(image, function(img) {
+    if(img.imageSize==="180-180"){ %>
+      <img tradeitemid="<%= tradeItemId %>" src="<%= img.path %>">
+  <% }}); %>
+</a>
+<div class="productDetails" tradeitemid="<%= tradeItemId %>" cartId="<%= cartId %>" mrp="<%= marketPrice %>" offerPrice="<%= price %>", sellerId="<%= sellerId %>">
+	<a><h4><%= tradeItemName %></h4></a></br>
+        <h4 class="cartSellerName" sellerId="<%= sellerId %>">seller: <%= sellerData.sellerShortName %></h4>
+	<div class="myCartPrice">
+            <% if (marketPrice === price) { %>
+                <span class="OfferPrice">Rs. <%= price %></span></br>
+            <% } else{ %>
+		<span class="MRP">Rs. <%= marketPrice %></span>
+                <span class="OfferPrice">Rs. <%= price %></span></br>
+            <% } %>
+                <div class="myCartQty">
+		  <span class="cartItemQty">Qty : </span><input class="qty" type="text" value="<%= qty %>">
+		</div>
+	</div>
+	<span class="removeCartItem">Remove</span>
+</div>

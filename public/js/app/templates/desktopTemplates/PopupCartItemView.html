@@ -1,0 +1,8 @@
+<span class="name" id="<%=tradeItemId%>" sellerId="<%=sellerId%>" cartId="<%=cartId%>" unitePrice="<%=price%>"><%= tradeItemName %></span>
+<input id="popupCartItemQty" type="text" value="<%= qty %>" class="cartListQty numeric">
+<span class="unitPrice">Rs. <%= price %></span>
+<span class="totalPrice">Rs. <%= (price*qty).toFixed(2) %></span>
+<span class="removeIcon"><img class="removeItem" src="http://cdn2.bcdsn.net/mycitykart/css/images/close-icon.png"></span>
+
+
+

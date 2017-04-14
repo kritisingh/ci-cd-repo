@@ -1,0 +1,24 @@
+<a href="#op/<%= _id %>">
+  <div class="thumbnailImg">
+  <% _.each(imagePaths, function(img) {
+    if(img.imageSize==="180-180"){ %>
+      <img src="<%= img.path %>">
+  <% }}); %>
+  </div>
+  <div class="productListText">
+    <% if((tradeItemName.length) > 80){ %>
+      <h4><%= tradeItemName.slice(0, 79) %>...</h4>
+    <%}else{%> <h4><%= tradeItemName %></h4> <%}%>
+  </div><br>
+  <% if(sellers[0].marketPrice === sellers[0].unitSellingPrice){ %>
+    <div class="OfferPrice">Rs. <%= sellers[0].unitSellingPrice %></div>
+  <% }else{ %>
+  <% var discount = (100*((sellers[0].marketPrice - sellers[0].unitSellingPrice )/sellers[0].marketPrice)); %>
+    <div class="MRP">Rs. <%= sellers[0].marketPrice %></div>
+    <div class="OfferPrice">Rs. <%= sellers[0].unitSellingPrice %>
+     <% if(sellers[0].discount !==0){ %>    
+           <span class="discount">&nbsp( <%= Math.round(discount) %>% )</span>
+       <% } %>
+    </div>
+  <% } %>
+</a>

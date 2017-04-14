@@ -1,0 +1,65 @@
+var attributesetHandlers     = require('./attributesetHandlers')
+   ,banneradHandlers         = require('./banneradHandlers')
+   ,brandHandlers            = require('./brandHandlers')
+   ,categoryHandlers         = require('./categoryHandlers')
+   ,sitecategoryHandlers     = require('./sitecategoryHandlers')
+   ,cartHandlers             = require('./cartHandlers')
+   ,cityHandlers             = require('./cityHandlers')
+   ,importHandlers           = require('./importHandlers')
+   ,itemHandlers             = require('./itemHandlers')
+   ,orderHandlers            = require('./orderHandlers')
+   ,dealHandlers             = require('./dealHandlers')
+   ,sellerHandlers           = require('./sellerHandlers')
+   ,siteHandlers             = require('./siteHandlers')
+   ,skuHandlers              = require('./skuHandlers')
+   ,sellerCategoryHandlers   = require('./sellerCategoryHandlers')
+   ,sellerBrandHandlers      = require('./sellerBrandHandlers')
+   ,appInitHandlers          = require('./appInitHandlers')
+   ,uidHandlers        	     = require('./UidHandlers')
+   ,serviceHandlers	     = require('./serviceHandlers')
+   ,registrationHandlers     = require('./registrationHandlers')
+   ,authHandlers   	     = require('./authHandlers')
+   ,resetPasswordHandlers    = require('./resetPasswordHandlers')
+   ,deliveryTimeSlotHandlers = require('./deliveryTimeSlotHandlers');
+
+module.exports = [{ method: 'GET',  path: '/{path*}',  config: { handler: { directory: { path: './public', listing: false, index: true } } } },
+                  { method: 'POST', path: '/login',    config: { handler: authHandlers.login, auth: { mode: 'try' } } },
+		  { method: 'POST',  path: '/register',    config: { handler:registrationHandlers.postSellerParties } },
+                  { method: 'PUT', path: '/changePassword', config: { handler: authHandlers.changePassword } },
+		  { method: 'PUT',  path: '/forgotPassword',   config: { handler:resetPasswordHandlers.putForgotPassword} },
+		  { method: 'GET',  path: '/session',  config: { handler: authHandlers.session, auth: true } },
+                  { method: 'GET',  path: '/logout',   config: { handler: authHandlers.logout, auth: true } },
+		  { method: 'GET',  path: '/sku',  config: { handler: skuHandlers.getSKU} },
+                  { method: 'GET',  path: '/skus', config: { handler: skuHandlers.getSKUs} },
+                  { method: 'GET',  path: '/site', config: { handler: siteHandlers.getCatalogue} },
+                  { method: 'POST', path: '/site', config: { handler: siteHandlers.postsiteLead} },
+                  { method: 'GET',  path: '/city', config: { handler: cityHandlers.getLocality} },
+                  { method: 'GET',  path: '/sublocality', config: { handler: cityHandlers.getSubLocality} },
+                  { method: 'GET',  path: '/banner', config: { handler: banneradHandlers.getBanner} },
+		  { method: 'GET',  path: '/attributeSet', config: { handler: attributesetHandlers.getAttributeSet}},
+                  { method: 'GET',  path: '/brand', config: { handler: brandHandlers.getBrands} },
+                  { method: 'GET',  path: '/category', config: { handler: categoryHandlers.getCategory} },
+                  { method: 'GET',  path: '/sitecategory', config: { handler: sitecategoryHandlers.getSiteCategory} },
+                  { method: 'GET',  path: '/seller', config: { handler: sellerHandlers.getSeller} },
+                  { method: 'GET',  path: '/sellers', config: { handler: sellerHandlers.getSellers} },
+                  { method: 'GET',  path: '/appInitGet', config: { handler: appInitHandlers.getAppInit}},
+                  { method: 'GET',  path: '/appInitSet', config: { handler: appInitHandlers.setAppInit}},
+		  { method: 'POST', path: '/uidReceive', config: { handler: uidHandlers.receiveUid}},
+		  { method: 'POST', path: '/service',  config: { handler: serviceHandlers.postService}}, 
+		  { method: 'GET',  path: '/sellerCat', config: { handler: sellerCategoryHandlers.getSellerCategories}},
+		  { method: 'GET',  path: '/sellerBrand', config: { handler: sellerBrandHandlers.getSellerBrands}},
+		  { method: 'GET',  path: '/service', config: { handler: serviceHandlers.getServices}},
+                  { method: 'GET',  path: '/cart', config: { handler: cartHandlers.getCart}}, 
+                  { method: 'POST',  path: '/cart',  config: { handler: cartHandlers.postCart}},
+                  { method: 'PUT',path: '/cart',  config: { handler: cartHandlers.updateCart}},
+                  { method: 'DELETE',path: '/cart',  config: { handler: cartHandlers.delCart}},
+                  { method: 'GET',  path: '/order',  config: { handler: orderHandlers.getOrder}},
+                  { method: 'POST', path: '/order',  config: { handler: orderHandlers.postOrder}},
+                  { method: 'PUT',path: '/order',  config: { handler: orderHandlers.updateOrders}}, 
+                  { method: 'GET',path: '/items',  config: { handler: itemHandlers.getITEMs}},
+                  { method: 'GET',path: '/orderHistory',  config: { handler: orderHandlers.getOrder}},
+                  { method: 'GET',path: '/topDeal',  config: { handler: dealHandlers.getDeals}},
+                  { method: 'GET',path: '/deliveryTimeSlot',  config: { handler: deliveryTimeSlotHandlers.getdeliverytimeslotdetail}}];
+
+
+

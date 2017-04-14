@@ -1,0 +1,37 @@
+  <div class="productDetails" tradeItemId="<%= _id %>">
+    <span class="closePopup"><img class="removeItem" src="http://cdn2.bcdsn.net/mycitykart/pics/close-icon.png"></span>
+    <div class="prodImgComtainer">
+      <% _.each(imagePaths, function(img) {
+	if((img.imageSize==="353-300")&&(img.imageType==="angle-1")){%>
+	  <img id="prodImg" src="<%= img.path %>">
+	<% }}); %>
+    </div>
+    <div class="product_detail_div">
+      <h1><%= tradeItemName %></h1><br>
+      <div class="priceOptionsContainer">
+        <div class="loadingIconContainer">
+          <img src="http://cdn2.bcdsn.net/mycitykart/css/images/bx_loader.gif">
+        </div>
+          <div class="price" style="width: 534px;" mrp="<%= sellers[0].marketPrice %>" usp="<%= sellers[0].unitSellingPrice %>">
+             <h5><b>MRP :&nbsp</b><span class="rsMRP">Rs <%= sellers[0].marketPrice %></span></h5>
+	     <h4><b>Offer Price :&nbsp</b><span class="rsOfferPrice">Rs <%= sellers[0].unitSellingPrice %></span></h4>
+	<div class="qty-AddToCartContainer">
+          <span class='cartSuccessMsg'>Item is added successfully to cart</span>
+	  <div class="qtyContainerDiv">
+	    <span class="qtyLabel"><h5>Select Quantity :</h5></span>
+	    <div class="qtyContainer">
+	      <span class="qty"><input id="qty" type="text" placeholder="1" value="1" class="text_color_focus numeric"></span>
+	      <span class="qtyChange">
+		<i class="icon-chevron-up"></i>
+		<i class=" icon-chevron-down"></i>
+	      <span>
+	    </div>
+	  </div>
+	  <div class="addToCartContainer">
+	    <a id="quickViewAddToCartBtn" class="btn btn-success add_button" sellerId="<%= sellers[0].sellerId._id %>">ADD TO CART</a>
+	  </div>
+	</div>
+      </div>
+      <div class="bestSellerContainer"><b>Best seller :&nbsp</b><%= sellers[0].sellerId.sellerShortName %></div>
+  </div>
+

@@ -1,0 +1,24 @@
+<div class="header">
+  <div class="menuBar">
+    <span class="menuIcon"></span>
+  </div>
+  <div class="divider menuBarDivider"></div>
+  <a class="logo" href="#"><img class="logoImg" src="http://cdn2.bcdsn.net/mycitykart/pics/mobpmLogo.png"></a>
+  <div class="divider menuBarDivider"></div>
+  <div class="headerMenuContainer">
+    <span class="searchBtn"><a href="#ShoppingCart"><span class="shoppingCartIcon"><span class="cartCount"></span></span></a></span>
+    <div class="divider menuBarDivider"></div>
+    <div class="cityList" id="NB-PUNE">PUNE<img class="downArrow" src="http://cdn2.bcdsn.net/mycitykart/css/images/nav-lable-icon-01.png" /></div>
+  </div>
+</div>
+<div class="searchContainer">
+  <div class="searchBlock">
+    <input id="search" type="text" placeholder="Search here...">
+    <span class="searchIconContainer"><span class="searchIcon"></span></span>
+  </div>
+</div>
+<ul class="headerMenuBar">
+  <% collection.each(function(item){%>
+      <li><a href="#<%= item.toJSON().pageType %>/<%= item.toJSON()._id %>" ><span class="menuBarDeptLabel"><%= item.toJSON().name %></span></a></li>
+    <% }); %>
+</ul>

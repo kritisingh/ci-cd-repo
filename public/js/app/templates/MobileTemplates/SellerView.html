@@ -1,0 +1,26 @@
+<span class="headerText">SELLERS SELLING THIS PRODUCT IN PUNE</span>
+<div class="sellerContainer">
+	<div class="name"><%= sellerParty.party.group.name %></div>
+	<div class="price">
+		<h4 class="OfferPrice" offerprice="<%= sellerTradeItem.unitSellingPrice %>">Offer Price : Rs. <%= sellerTradeItem.unitSellingPrice %></h4>
+	</div>
+	<div class="storeDetails">
+		<div class="text">
+			<% if(DeliveryParty){ %>
+	                  <%= DeliveryParty.group.name %> <br> 
+	       		<% } %>
+			<%= DeliverdFromLocation.addressLine1 %>,&nbsp
+			<%= DeliverdFromLocation.addressLine2 %>,&nbsp 
+			<%= DeliverdFromLocation.streetName %>,&nbsp
+			<%= DeliverdFromLocation.locality.suburb %> </br>
+			<% if(locationCharges){ %>
+				+Shipping Charges: Rs  <%= locationCharges.shippingCharge %>
+			<% } %>
+		</div>
+		<% if(sellerTradeItem.negotiable===true){ %>
+			<div class="btn btn-success negotiateBtn" id="<%= sellerTradeItem.sellerId %>" sellerName="<%= sellerParty.party.group.name %>">Negotiate</div>
+		<% }else{ %>
+			<div class="btn btn-success buy_button" id="<%= sellerTradeItem.sellerId %>" sellerName="<%= sellerParty.party.group.name %>">Buy Now</div>
+		<% } %>
+	</div>
+</div>

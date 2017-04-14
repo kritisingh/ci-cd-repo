@@ -1,0 +1,84 @@
+<div class="steps">
+		<div class="step"><span class="stepText">1. Shipping Details</span></div><div class="arrow"></div>
+		<div class="stepSelect"><span class="stepText">2. Confirm Order</span></div><div class="arrowSelect"></div>
+		<div class="step"><span class="stepText">3. Payment</span></div>
+</div>
+<% var grandTotal=0; %>
+<% orders.forEach(function(order){ var item=order.toJSON(); %>
+	<div class="cartContainerdiv orderContainer">
+	  <div class="hdrBackground">
+	    <div class="orderDetails">
+	      <div class="orderNo"><b>Order # :</b>&nbsp<%= item.orderHeader.orderNumber %></div>
+              <%
+                var date=item.orderHeader.orderDate;
+		var obj=new Date(date);
+		obj.toString('yyyy-MM-dd');       //returns "2009-06-29" in IE, but not FF or Chrome
+		obj.toString('dddd, MMMM ,yyyy');
+		var curr_date = obj.getDate();
+		var curr_month = obj.getMonth() + 1; //Months are zero based
+		var curr_year = obj.getFullYear();
+		var newdate=(curr_date + "-" + curr_month + "-" + curr_year);
+              %>
+	      <div class="orderDate"><b>Order Date :</b>&nbsp<%= newdate %></div>
+	    </div>
+          <span class="sellerDetails"><b>Seller :&nbsp</b>&nbsp<%= item.orderHeader.seller.sellerShortName %></span>
+	  </div>
+          <% var totalAmt=0; 
+             var amtPayable=0; 
+             item.orderLines.forEach(function(orderLine){ 
+             totalAmt = totalAmt + (orderLine.orderQty)*(orderLine.unitSellingPrice);%>
+          <div class="productDetails">
+             <table>
+	      <tr>
+	        <td class="rowLabel"><b>Item :&nbsp</b></td>
+	        <td class="rowValue"><%= orderLine.tradeItem.tradeItemName %></td>
+	      </tr>
+	      <tr>
+	        <td class="rowLabel"><b>Unit Price :&nbsp</b></td>
+	        <td class="rowValue">Rs. <%= orderLine.unitSellingPrice %></td>
+	      </tr>
+              <tr>
+	        <td class="rowLabel"><b>Qty :&nbsp</b></td>
+	        <td class="rowValue"><%= orderLine.orderQty %></td>
+	      </tr>
+	    </table>
+	  </div>
+	  <% });%>
+	  <div class="grandTotalDetails">
+	    <table>
+	      <tr>
+	        <td class="rowLabel"><b>Total Amount :&nbsp</b></td>
+	        <td class="rowValue">Rs. <%= totalAmt %></td>
+	      </tr>
+	      <tr>
+	        <td class="rowLabel"><b>Amount Payable :&nbsp</b></td>
+	        <td class="rowValue">Rs. <%= totalAmt %></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+<% grandTotal=grandTotal+totalAmt});%>
+<% var now = new Date(), hour = now.getHours(), today = now.getTime(), nextday = new Date();
+   var day=nextday.getDate();
+   nextday.setDate(day+1);
+%>
+<% 
+   var newdate=now.toISOString();
+   var nextdate=nextday.toISOString();
+%>
+<div class="deliverySlotsContainer">
+  <div class="deliverySlotsHeader">Choose delivery slot :</div>
+  <% if (hour <= 10) { %>
+    <div class="timeSlot"><input type="checkbox" checked id="10AM" date="<%=newdate%>">1:00pm to 3:00pm (Today)</div>
+    <div class="timeSlot"><input type="checkbox" id="16PM" date="<%=newdate%>">7:00pm to 9:00pm (Today)</div>
+  <% } else if ((hour >= 10) && ((hour <= 15))) { %>
+    <div class="timeSlot"><input type="checkbox" checked id="16PM" date="<%=newdate%>">7:00pm to 9:00pm (Today)</div>
+    <div class="timeSlot"><input type="checkbox" id="10AM" date="<%=nextdate%>">1:00pm to 3:00pm (Tomorrow)</div>
+  <% } else if (hour >= 15) { %>
+    <div class="timeSlot"><input type="checkbox" checked id="10AM" date="<%=nextdate%>">1:00pm to 3:00pm (Tomorrow)</div>
+    <div class="timeSlot"><input type="checkbox" id="16PM" date="<%=nextdate%>">7:00pm to 9:00pm (Tomorrow)</div>
+  <% } %>
+</div>
+<div class="continueBtn">
+  <button id="confirm" class="btn-success btn okBtn" grandTotal="<%= grandTotal %>">Confirm</button>
+</div>

@@ -1,0 +1,16 @@
+<% if (collection.length) { %>
+<ul class='brickCatList'>
+    <% collection.forEach(function (item) { %>
+        <li id="<%= item.toJSON()._id %>">
+	    <a href="#<%= item.toJSON().pageType %>/<%= item.toJSON()._id %>"><%= item.toJSON().name %></a>
+        </li>
+    <% }); %>
+</ul>
+ <% } else { %>
+<ul class='searhedProductList sugestionList'>
+    <li id='msg'>No result found. We are working on it to serve you best.</li>
+</ul>
+<% } %>
+
+
+

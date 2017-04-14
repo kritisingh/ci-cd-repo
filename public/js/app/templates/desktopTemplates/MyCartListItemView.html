@@ -1,0 +1,19 @@
+<td id="<%=item.tradeItemId%>" sellerId="<%=item.sellerId%>" cartId="<%=item.cartId%>" unitePrice="<%=item.price%>">
+    <span class="cartProdImg">
+    <% _.each(item.image, function(img) {
+        if((img.imageSize==="353-300")&&(img.imageType==="angle-1")){%>
+          <img id="checkoutprodImg" src="<%= img.path %>">
+    <% }}); %>
+    </span><br>
+    <span><%= item.tradeItemName%></span>
+</td>
+<% if(item.marketPrice===item.price){ %>
+     <td align="center"><span class="offerPrice">Rs. <%= item.price %></span></td>
+<%}else{%>
+     <td align="center"><span class="mrp">Rs.<%= item.marketPrice %></span></br><span class="offerPrice">Rs. <%= item.price %></span></td>
+<% }%>
+<td align="center"><input id="qty" type="text" placeholder="1" value="<%= item.qty %>" class="text_color_focus numeric"></td>
+<td align="center" class="total"></td>
+<td align="center"><img class="removeItem" src="http://cdn2.bcdsn.net/mycitykart/pics/close-icon.png"></td>
+
+

@@ -1,0 +1,250 @@
+.popupContainer, .termsAndConditionsContainer{
+position: fixed;
+left: 0;
+top: 0;
+z-index: 11;
+}
+
+.popupContainer1{
+position: fixed;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: rgba(31, 15, 15, 0.22);
+z-index: 1;
+}
+
+.popupNigotiateBlock, .termsAndConditionsBlock{
+text-align: center;
+width: 100%;
+height: 100%;
+position: fixed;
+z-index: 2;
+background: rgba(141, 141, 141, 0.88);
+display: none;
+}
+
+.nigotiateOperationDialog, .termsAndConditionsDialog{
+background-color: rgb(255, 255, 255);
+padding: 0px;
+border: 1px solid rgb(221, 221, 221);
+overflow: hidden;
+width: 342px;
+height: auto;
+margin: 73px auto 0;
+}
+
+.successMsg{
+padding: 12px;
+border: 3px solid #dadf33;
+line-height: 26px;
+}
+
+.nigotiateHeader{
+position: relative;
+background: linear-gradient(rgb(255, 255, 255) 0px, rgb(238, 238, 238) 100%) repeat-x rgb(247, 247, 247);
+border: 1px solid rgb(243, 242, 242);
+padding: 10px 0;
+border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.nigotiateForm li{
+width: 92%;
+padding: 0 4%;
+float: left;
+margin-bottom: 3px;
+}
+
+.label, .value{
+text-align: left;
+}
+
+.value input[type="text"], .value textarea, .value select{
+width: 300px;
+margin: 0;
+border-radius: 0;
+padding: .3em;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+font-size: 12px;
+}
+
+.label{
+font-size: 13px;
+color: rgb(95, 95, 95);
+border: 0 none;
+padding: 6px 0 0;
+white-space: nowrap;
+border-radius: 0;
+font-weight: bold;
+}
+
+.value{
+padding: 2px;
+border: 0 none;
+vertical-align: top;
+border-radius: 0;
+}
+
+.const{
+font-size: 12px;
+color: rgb(78, 78, 78);
+line-height: 18px;
+}
+
+.problem{
+width: 310px;
+padding: 5px 0;
+background: white;
+border: 1px solid #C7C7C7;
+}
+
+.termsAndConditions{
+float: left;
+overflow: hidden;
+margin: 0;
+font-size: 12px;
+width: 100%;
+}
+
+.alert-error{
+width: 311px;
+font-size: 12px;
+background: rgb(253, 226, 226);
+border: 1px solid red;
+margin: 9px 0 0 16px;
+float: left;
+padding: 5px 0;
+}
+
+.termsAndConditions a {
+float: none;
+text-decoration: underline;
+color: rgb(10, 10, 221);
+cursor:pointer;
+}
+
+.form{
+width: auto;
+overflow: hidden;
+position: relative;
+height: auto;
+}
+
+.addNigotiateRecord{
+display:block;
+color: rgb(0, 134, 32);
+}
+
+#addNigotiate, #closePopup{
+margin:8px 8px;
+}
+
+.error,.erroremail,.errorno,.errorname{
+display: none;
+color: rgb(211, 7, 7);
+font-size: 12px;
+padding: 5px 0;
+}
+
+.value input[type="text"].firstName, .value input[type="text"].lastName{
+width: 144px;
+}
+
+.value input[type="text"].lastName{
+}
+
+
+/*********************terms And Conditions *******************************************/
+
+.termsAndConditionsDialog{
+width: 96%;
+margin: 14px auto 0 12px;
+border-radius: 5px;
+height: 600px;
+overflow: auto;
+}
+
+.termsAndconditions{
+overflow: hidden;
+font-size: 16px;
+width: 100%;
+margin: 10px 10px;
+color: rgb(48,120,211);
+}
+
+.termsAndConditionsContent h6{
+text-align: left;
+margin: 10px 10px 0 20px;
+color: rgb(116,116,116);
+font-size: 13px;
+font-weight: normal;
+}
+
+.termsAndConditionsHeader{
+padding: 10px 0;
+position: relative;
+background: #F1F1F1;
+border: 1px solid #E9E9E9;
+padding: 5px 10px;
+margin: 10px auto 0 90px;
+width: 978px;
+float: left;
+}
+
+.itemDescTitle.tcTitle, .termsSubTitle{
+margin: 0 0 0 20px;
+float:left;
+}
+
+.termsSubTitle{
+margin: 0 0 0 25px;
+}
+
+.tcBlock{
+padding: 12px 1%;
+}
+
+.termsAndConditionsContent h6.subContent{
+margin: 0 0 0 25px;
+}
+
+.closeIcon{
+width: 17px;
+height: 17px;
+background: #F1F1F1;
+border: 1px solid #E9E9E9;
+margin: 14px 10px 0 0;
+cursor: pointer;
+position: fixed;
+right: 37px;
+top: 23px;
+}
+
+.tcContent{
+float: left;
+margin-right: 1px;
+}
+
+.formValue input[type="text"], .formValue textarea{
+border: none;
+border: 1px solid #e5e5e5;
+padding: 0px 9px;
+outline: none;
+color: #666;
+font-size: 13px;
+font-family: 'Arial', Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+.formValue input[type="text"], .formValue textarea{
+width:440px;
+}
+
+#location, #locality{
+border-radius: 0;
+}
+
+#location{
+width: 308px;
+}

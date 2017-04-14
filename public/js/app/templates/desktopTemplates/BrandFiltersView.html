@@ -1,0 +1,14 @@
+<div class="filters_div">Categories</div>
+<ul class="display" brandId="<%= _id %>">
+	<% _.each(categories, function(cat) {%>
+        <% if (cat.categoryType === "BRICK") {%>
+	   <li id="<%= cat._id %>" brandId="<%= _id %>">
+		<label class="checkbox" id="brandInput">
+		<input type="checkbox" id="optionsCheckbox" value="option1"><%= cat.name %>
+		</label>
+	   </li>
+        <% } %>
+	<% }); %>
+</ul>
+
+

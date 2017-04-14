@@ -1,0 +1,34 @@
+<div class="subMenuBarBtns">
+  <div class="filterBtn">
+    <span class="filterIcon"></span>
+  </div>
+</div>
+<div class="filtersContainer">
+  <div class="filtersPopup">
+	  <div class="filtersContainerBtns">
+	    <div class="btn btn-success filterList">Apply</div>
+	    <div class="btn btn-success close">Cancel</div>
+	  </div>
+	  <div class="filterAttributes">
+		  <div class="brandsFilters">
+		    <div class="filters_div">Brands</div>
+		    <ul class="atribute"></ul>
+		  </div>
+		  <div class="attributeFilters">
+                    <% if (attributeSets.length) { %>
+		    <% _.each(attributeSets[0].attributes, function(attr) { %>
+		      <div class="filters_div"><%= attr.attribute.name %></div>
+		      <ul class="display" attributeSetId="<%= attributeSets[0]._id %>" attributeId="<%= attr.attribute._id %>">
+			<% _.each(attr.values, function(value) { %>
+			  <li id="<%= value._id %>" attributeId="<%= value.attributeId %>">
+			    <label class="checkbox">
+			      <input type="checkbox" id="optionsCheckbox" value="option1"><%= value.name %>
+			    </label>
+			  </li>
+			<% }); %>
+		      </ul>
+		    <% }); } %>
+		  </div>
+	  </div>
+  </div>
+</div>

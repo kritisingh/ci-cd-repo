@@ -1,0 +1,32 @@
+<% if(item.features[0].title!=''){ %> 
+  <span class="headerText">Product Description</span>
+  <div class="prodSpecWraper">
+    <% _.each(item.features, function(desc) {
+      if(desc.title!=''){ %>
+        <h4 Class="itemDescTitle"><%= desc.title %></h4>
+        <h6 Class="itemDesc"><%= desc.description %></h6><br>
+      <% }  
+    }); %>
+  </div>
+<% } %>
+<span class="headerText">Product Specification</span>
+<div class="">
+<% itemSpec=_.rest(itemSpec);
+_.each(itemSpec, function(attr) {%>
+  <div class="productSpecTable">
+    <span class="subHeaderText"><%= attr.attributeSet.name %></span>
+    <table>
+      <tbody>
+        <% _.each(attr.attributes, function(attr1) {%>  
+          <% if(attr1.attrFreeText!=''){ %>
+	    <tr>
+	      <td class="featureName"><%=attr1.attribute.name%></td>
+	      <td class="featureValue"><%=attr1.attrFreeText%></td>
+	    </tr>
+	  <% }%>			
+        <% }); %>
+      </tbody>
+    </table>	
+  </div>
+<% }); %>
+</div>

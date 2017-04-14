@@ -1,0 +1,17 @@
+<div class="path">
+    <% if (familyCat) { %>
+        <a href="/../">Home</a><span>&nbsp/&nbsp</span><a href="#ifc/<%= familyCat.id %>"><%= familyCat.name %></a><span>&nbsp/&nbsp</span><%=catname%>
+    <% } else { %>
+        <a href="/../">Home</a><span>&nbsp/&nbsp</span><%=catname%>
+    <% } %>
+</div>
+<div class='filter_container'>
+        <div class="brickCats"></div>
+	<div class='brandsFilters'>
+		<div class='filters_div'>Brands</div>
+		<div><ul class='atribute'></ul></div>
+	</div>
+	<div class='filtersBrands'></div>
+</div>
+<div class="searhedProductListContainer"></div>
+

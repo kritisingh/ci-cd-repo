@@ -1,0 +1,40 @@
+<div class="nigotiateOperationDialog">
+	<div class="nigotiateHeader"><span class="addNigotiateRecord">Negotiate with Seller</span></div>
+             <div class="form">
+		     <ul class="nigotiateForm">
+			<li>
+		    	    <div class="label">Product : </div>
+			    <div class="value const" id="tradeItem" tradeItem = "<%= tradeItem %>" item="<%= item %>"><%= tradeItemName %></div>
+			</li>
+			<li>
+		    	    <div class="label">Seller : </div>
+			    <div id="seller" class="value const" sellerId="<%= sellerId %>"><%= sellerName %></div>
+			</li>
+		     	<li>
+		    	    <div class="label"><sup>*</sup>Your Name :</div>
+			    <div class="value"><input class="firstName mandatory" type="text" id="firstName" placeholder="First name">
+					       <input class="lastName mandatory" type="text" id="lastName" placeholder="Last name"></div>
+			</li>
+			<li>
+			   <div class="label"><sup>*</sup>Mobile No. :</div>
+			   <div class="value"><input class="mbNumber mandatory" type="text" id="mobNumber"></div>
+			</li>
+			<li>
+			   <div class="label"><sup>*</sup>Email Id :</div>
+			   <div class="value"><input class="mailId mandatory" type="text" id="emailId"></div>
+			</li>
+			<li>
+			   <div class="label">Comments :</div>
+			   <div class="value"><textarea id="comment" name="Comments" placeholder="Comments"></textarea></div>
+			</li>
+		     </ul>
+            </div>
+	    <span class="termsAndConditions">
+	      <input type="checkbox" class="mandatory" id="terms" name="terms" value="accepet"> Accept <span class="terms_conditions">terms and conditions</span>
+            </span>
+	    <div id="err"></div>
+	    <div class="AddBtn">
+		<button id='addNigotiate' class='btn-success btn okBtn'>Send</button>
+		<button id='closePopup' class='btn-success btn'>Cancel</button>
+	    </div>
+</div>

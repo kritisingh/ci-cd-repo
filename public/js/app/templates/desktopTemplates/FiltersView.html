@@ -1,0 +1,15 @@
+<% if (attributeSets.length) { %>
+<% _.each(attributeSets[0].attributes, function(attr) { %>
+   <div class="filters_div"><%= attr.attribute.name %></div>
+   <div>
+	<ul class="display" attributeSetId="<%= attributeSets[0]._id %>" attributeId="<%= attr.attribute._id %>">
+		<% _.each(attr.values, function(value) { %>
+		<li id="<%= value._id %>" attributeId="<%= value.attributeId %>">
+			<label class="checkbox catpage">
+			<input type="checkbox" id="optionsCheckbox" value="option1"><%= value.name %>
+			</label>
+		</li>
+		<% }); %>
+	</ul>
+   </div>
+<% }); } %>

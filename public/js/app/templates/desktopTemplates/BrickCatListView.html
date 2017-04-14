@@ -1,0 +1,20 @@
+<div>
+   <ul class='brickCatList'>
+        <% collection.forEach(function (item) { %>
+        <li id="<%= item.toJSON()._id %>">
+	    <a href="#<%= item.toJSON().pageType %>/<%= item.toJSON()._id %>"><%= item.toJSON().name %></a>
+        </li>
+        <% }); %>
+    </ul>
+    <% if((collection.length) && (collection.length > 4)) {
+        var number = collection.length -4;
+    %>
+        <div class="seeMoreContainer">
+           <% if (number != 0) {%>
+             <span class="seeMore">See <%= number %> more ...</span>
+            <% } %>
+           <span class="seeFewer">See fewer ...</span>
+        </div>
+    <% } %>
+</div>
+

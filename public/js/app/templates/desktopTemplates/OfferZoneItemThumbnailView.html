@@ -1,0 +1,27 @@
+<div class="ThumbnailContainer offerThumbnailcontainer" style="height: 303px;">
+  <div class="productItem" id="<%= _id %>">
+    <a class="thumbnailImg">
+      <% _.each(imagePaths, function(img) {
+        if(img.imageSize==="180-180"){ %>
+	<img src="<%= img.path %>">
+      <% }}); %>
+      <div class="quickViewBtn">Quick Look</div>
+      <span class='cartSuccessMsg'>Item is added successfully to cart</span>
+    </a></br><br>
+    <div class="productListText" >
+      <% if (tradeItemName.length > 70) { var name1 = tradeItemName.substring(0,70) + "...";} else {var name1 = tradeItemName;} %>
+      <h4><a style="font-weight:bold;"><%= name1 %></a></h4>
+    </div>
+    <br><br>
+    <div class="productPrice" usp="<%= sellers[0].unitSellingPrice %>" mrp="<%= sellers[0].marketPrice %>">
+      <div class="rsMRP">Rs.<span class="mrp"><%= sellers[0].marketPrice %></span></div>
+      <div class="rsOfferPrice">Rs.<span class="offerPrice"><%= sellers[0].unitSellingPrice %></span></div>
+    </div>
+    <div id="offerAddToCartBtn" class="btn btn-success Button btnCart" sellerId="<%= sellers[0].sellerId._id %>">Add to Cart </div>
+    </div>
+  <div class="loadingIconContainer">
+    <img src="http://cdn2.bcdsn.net/mycitykart/css/images/bx_loader.gif" />
+  </div>
+</div>
+
+

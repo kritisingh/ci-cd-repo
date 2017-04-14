@@ -1,0 +1,29 @@
+<% var now = new Date(), hour = now.getHours(), date = now.getDate(), year = now.getFullYear(), months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], month = months[ now.getMonth() ]; %>
+<div class="slotContainer1">
+<div class="slotContainer">
+    <div class="slotHeader">Delivery Time Slots :</div>
+            <div class="date"><%= month %> <%= date %>, <%= year %>(Today)</div>
+            <div class="timeSlots">
+                <% if (hour <= 9) { %>
+                <span class="timeSlot">01:00pm to 03:00pm</span>
+                <span class="timeSlot">07:00pm to 09:00pm</span>
+                <% } else if ((hour >= 9) && (hour <= 15)) { %>
+                <span class="timeSlot disable">01:00pm to 03:00pm</span>
+                <span class="timeSlot">07:00pm to 09:00pm</span>
+                <% } else { %>
+                <span class="timeSlot disable">01:00pm to 03:00pm</span>
+                <span class="timeSlot disable">07:00pm to 09:00pm</span>
+                <% } %>,
+            </div>
+<% var tomorrow = new Date();
+tomorrow.setDate(now.getDate()+1);
+var tomorrowDate = tomorrow.getDate(), tomorrowYear = tomorrow.getFullYear(), tomorrowMonth = months[ tomorrow.getMonth() ]; %>
+            <div class="date"><%= tomorrowMonth %> <%= tomorrowDate %>, <%= tomorrowYear %>(Tomorrow)</div>
+            <div class="timeSlots">
+                <span class="timeSlot">01:00pm to 03:00pm</span>
+                <span class="timeSlot">07:00pm to 09:00pm</span>
+            </div>
+    <div class="condition cnd">(<span class="red">*</span>Minimum Order Rs. 500)</div>
+</div>
+</div>
+

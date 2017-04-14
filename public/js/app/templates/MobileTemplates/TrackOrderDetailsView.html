@@ -1,0 +1,57 @@
+<% var grandTotal=0; %>
+<% orders.forEach(function(order){ var item=order.toJSON(); %>
+	<div class="cartContainerdiv orderContainer">
+	  <div class="hdrBackground">
+	    <div class="orderDetails">
+	      <div class="orderNo"><b>Order # :</b>&nbsp<%= item.orderHeader.orderNumber %></div>
+	      <div class="orderDate"><b>Order Date :</b>&nbsp<%= item.orderHeader.orderDate %></div>
+	    </div>
+          <span class="sellerDetails"><b>Seller :&nbsp</b>&nbsp<%= item.orderHeader.seller.sellerShortName %></span>
+	  </div>
+          <% var totalAmt=0; 
+             var amtPayable=0; 
+             item.orderLines.forEach(function(orderLine){ 
+             totalAmt = totalAmt + (orderLine.orderQty)*(orderLine.unitSellingPrice);%>
+          <div class="productDetails">
+             <table>
+	      <tr>
+	        <td class="rowLabel"><b>Item :&nbsp</b></td>
+	        <td class="rowValue"><%= orderLine.tradeItem.tradeItemName %></td>
+	      </tr>
+	      <tr>
+	        <td class="rowLabel"><b>Unit Price :&nbsp</b></td>
+	        <td class="rowValue">Rs. <%= orderLine.unitSellingPrice %></td>
+	      </tr>
+              <tr>
+	        <td class="rowLabel"><b>Qty :&nbsp</b></td>
+	        <td class="rowValue"><%= orderLine.orderQty %></td>
+	      </tr>
+	    </table>
+	  </div>
+	  <% });%>
+	  <div class="grandTotalDetails">
+	    <table>
+	      <tr>
+	        <td class="rowLabel"><b>Total Amount :&nbsp</b></td>
+	        <td class="rowValue">Rs. <%= totalAmt %></td>
+	      </tr>
+	      <tr>
+	        <td class="rowLabel"><b>Amount Payable :&nbsp</b></td>
+	        <td class="rowValue">Rs. <%= totalAmt %></td>
+	      </tr>
+	    </table>
+	  </div>
+	</div>
+<% grandTotal=grandTotal+totalAmt});%>
+<div class="customerInformationContainer">
+	<div class="customerInformation">
+          <span class="fnt-tahoma"><strong>Customer Information</strong>: </span><br>
+	  <span class="cusadd">Name:&nbsp;<%= orders.models[0].toJSON().orderHeader.buyerParty.person.fullName %><br>Mobile:&nbsp;<%= orders.models[0].toJSON().orderHeader.buyerParty.contactNumber[0].contactNum%> <br>Email:&nbsp;<%= orders.models[0].toJSON().orderHeader.buyerParty.electronicAddress[0].eAddress%></span><br><br>
+          <span class="fnt-tahoma"><strong>Shipping Information</strong>: </span><br>
+	  <span class="cusadd add1">Address:&nbsp;<%= orders.models[0].toJSON().orderHeader.buyerPartyAddress.addressLine1 %></span>
+	</div>
+</div>
+<div class="orderStatus">
+  <span class="orderStatusHeader">Order Status :&nbsp<b><%= orders.models[0].toJSON().orderHeader.orderFlowStatus %></b></span>
+  <div class="statusDetail"></div>
+</div>

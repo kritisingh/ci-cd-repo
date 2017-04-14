@@ -1,0 +1,10 @@
+<span class="headerText">BEST SELLER</span>
+<span class="text">
+	<span class="name"><%= sellers[0].sellerId.sellerShortName %></span></br>
+	<span class="address"><%= sellers[0].sellerId.address.addressLine1 %><%= sellers[0].sellerId.address.addressLine2 %></br><%= sellers[0].sellerId.address.streetName %>, <%= sellers[0].sellerId.cities[0].city %></span>
+</span>
+<% if(sellers[0].negotiable===true){ %>
+	<div class="btn btn-success negotiateBtn Button" id="<%= sellers[0].sellerId._id %>" sellerName="<%= sellers[0].sellerId.party.group.name%>">Negotiate</div>
+<% }else{ %>
+	<div class="btn btn-success buy_button Button" id="<%= sellers[0].sellerId._id %>" sellerName="<%= sellers[0].sellerId.party.group.name %>">Buy Now</div>
+<% } %>

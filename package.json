@@ -1,0 +1,23 @@
+{
+  "name": "cloudmantra-app",
+  "version": "0.0.1",
+  "description": "cloudmantra ecommerce desktop and mobile application",
+  "main": "server",
+  "engines": {
+    "node": ">=0.10.x"
+  },
+  "dependencies": {
+    "hapi": "x.x.x",
+    "hapi-auth-cookie": "x",
+    "underscore": "1.x",
+    "mongoose": "3.8.x",
+    "bcrypt": "x",
+    "mongoose-validator": "0.2.x",
+    "async": "x"
+  },
+  "author": "Engineering Team of Trigya Technologies Pvt. Ltd.",
+  "private": "true",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

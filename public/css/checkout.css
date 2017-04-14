@@ -1,0 +1,646 @@
+a{
+float: left;
+}
+
+.steps {
+width: 590px;
+border: 1px solid #D6D6D6;
+margin: 7px auto;
+overflow: hidden;
+}
+
+.stepSelect, .step {
+float: left;
+width: 140px;
+height: 31px;
+}
+
+.stepText {
+display: block;
+font-size: 14px;
+font-weight: bold;
+color: rgb(109, 109, 109);
+margin: 5px auto 0;
+text-align: center;
+}
+
+.arrowSelect {
+background: url(images/steps.png) no-repeat top left;
+float: left;
+background-position: 0 -34px;
+width: 10px;
+height: 31px;
+}
+
+.step {
+background: url(images/steps.png);
+}
+
+.stepSelect, .step {
+float: left;
+width: 190px;
+height: 31px;
+}
+
+.step .stepText {
+color: rgb(196, 196, 196);
+}
+
+.stepText {
+display: block;
+font-size: 14px;
+font-weight: bold;
+color: rgb(109, 109, 109);
+margin: 5px auto 0;
+text-align: center;
+}
+
+.arrowNext {
+background: url(images/steps.png) no-repeat top left;
+float: left;
+background-position: 0 -69px;
+width: 10px;
+height: 31px;
+}
+
+.placeOrderFormContainer {
+float: left;
+width: 100%;
+}
+
+.table{
+margin: auto;
+max-width: 100%;
+background-color: transparent;
+border-collapse: collapse;
+border-spacing: 0;
+width: 593px;
+}
+
+.field {
+padding: 7px 0 0 0;
+}
+
+.red, sup {
+color: red;
+}
+
+.checkOutTable td {
+font-weight: bold;
+}
+
+small {
+font-weight: normal;
+font-size: 83%;
+}
+
+small.text{
+font-size: 11px;
+color: #5D5959;
+}
+
+.smallText{
+margin-left: 5px;
+font-size: 80%;
+color: rgb(97, 97, 97);
+}
+
+.button {
+width: 100%;
+}
+
+.btn {
+text-decoration: none;
+display: inline-block;
+padding: 4px 12px;
+margin-bottom: 0;
+font-size: 14px;
+line-height: 20px;
+color: #FFFFFF;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+background-color: #5bb75b;
+background-image: -moz-linear-gradient(top, #62c462, #51a351);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+background-image: -o-linear-gradient(top, #62c462, #51a351);
+background-image: linear-gradient(to bottom, #62c462, #51a351);
+background-repeat: repeat-x;
+border: 1px solid #cccccc;
+border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+border-bottom-color: #b3b3b3;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+color: #ffffff;
+background-color: #51a351;
+}
+
+.btn:active {
+background-image: none;
+outline: 0;
+-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover, .btn:focus {
+color: #FFFFFF;
+text-decoration: none;
+background-position: 0 -15px;
+-webkit-transition: background-position 0.1s linear;
+-moz-transition: background-position 0.1s linear;
+-o-transition: background-position 0.1s linear;
+transition: background-position 0.1s linear;
+}
+
+.preExt {
+border-radius: 4px 0 0 4px;
+margin: 0px 0 0 4px;
+float: left;
+display: inline-block;
+width: auto;
+height: 20px;
+min-width: 16px;
+padding: 4px 5px;
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+text-align: center;
+text-shadow: 0 1px 0 #ffffff;
+background-color: #eeeeee;
+border: 1px solid #ccc;
+border-right: 0px solid;
+}
+
+.top_header {
+width: 100%;
+float: left;
+margin: 21px auto 0 185px;
+}
+
+.alert-error {
+color: #b94a48;
+background-color: #f2dede;
+border-color: #eed3d7;
+}
+
+.alert {
+padding: 8px 35px 8px 14px;
+margin-bottom: 20px;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+background-color: #fcf8e3;
+border: 1px solid #fbeed5;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.login-option{
+width: auto;
+margin-top: 12px;
+}
+
+.logoImg{
+float: left;
+}
+
+.subText{
+margin: 0 0 0 21px;
+font-size: 12px;
+font-weight: normal;
+}
+
+
+
+#email p{
+margin-left: 0;
+}
+
+
+#placeOrderForm{
+width: 704px;
+border: 1px solid #EBEBEB;
+margin: 12px 0 0 1px;
+padding-bottom: 21px;
+float: left;
+}
+
+.bgCityImg {
+bottom: 0;
+position: fixed;
+width: 100%;
+float: left;
+}
+
+.content{
+width: 1002px;
+margin: 0 auto;
+position: relative;
+overflow: hidden;
+background: white;
+min-height: 535px;
+}
+
+.checkOutTable .textRight{
+text-align: center;
+font-size:87%;
+}
+
+.arrow {
+background: url(images/steps.png) no-repeat top left;
+float: left;
+background-position: 0 -104px;
+width: 10px;
+height: 31px;
+}
+
+.promotionCodeContainer {
+float: left;
+padding-left: 16px;
+overflow: hidden;
+width: 100%;
+}
+
+.promotionCodeLabel {
+font-size: 13px;
+font-weight: bold;
+}
+
+.promotionCode {
+width: 111px;
+margin: 0 3px 0 0;
+}
+
+.promotionCodeBtn {
+margin-bottom: 12px;
+font-size: 12px;
+}
+
+.deliveryDateContainer {
+float: right;
+margin: 7px 3% 0 0;
+}
+
+.deliveryDateContainer .textRight {
+font-size: 13px;
+font-weight: bold;
+margin: 12px 12px 0 0;
+}
+
+.deliveryDateContainer div {
+float: left;
+}
+
+.field {
+padding: 7px 0 0 0;
+}
+
+#datepicker {
+font-size: 12px;
+width: auto;
+}
+
+.table select {
+width: 220px;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+height: 30px;
+line-height: 30px;
+}
+
+.confirmOrderDetails{
+float: left;
+margin: 7px 10px;
+width: 310px;
+background-color: transparent;
+border-collapse: collapse;
+border-spacing: 0;
+border: 1px solid #d6d6d6;
+}
+
+
+
+.orderdetailsdata {
+border: 2px solid #d4d4d4;
+font-size: 13px;
+width: 958px;
+float: left;
+}
+
+.totalprice table td{
+float: left;
+width: 177px;
+}
+
+.totalprice table td.line{
+width: 367px;
+}
+
+.orderdetailsdata td {
+border: 1px solid #d4d4d4;
+border-collapse: collapse;
+padding: 10px 4px 4px 4px;
+vertical-align: top;
+color: #272727;
+}
+
+.common {
+font-weight: bold;
+font-size: 12px;
+background: #eee;
+}
+
+.fnt-tahoma {
+font-family: Tahoma;
+}
+
+.cusinfo {
+font-size: 13px;
+}
+
+.cusadd {
+color: #3A3939;
+font: 12px/22px din-med, Arial, sans-serif;
+}
+
+.totalprice {
+font-size: 13px;
+}
+
+.termsAndConditions {
+margin: 12px 0 0 4%;
+}
+
+input[type="checkbox"] {
+width: auto;
+cursor: pointer;
+}
+
+.confirmOrderBtn {
+width: 210px;
+margin: 16px 26%;
+float: left;
+}
+
+
+.orderSummaryContainer{
+width: 264px;
+float: left;
+border: 1px solid #EBEBEB;
+margin: 12px 0 0 6px;
+}
+
+.checkoutContainerHeader {
+text-align: center;
+font-size: 14px;
+font-weight: bold;
+color: rgb(116, 116, 116);
+width: 249px;
+float: left;
+border-bottom: 3px solid #dadf33;
+padding: 8px;
+}
+
+.orderSummaryTable{
+width: 100%;
+float: left;
+color: #6D6D6D;
+font-size: 12px;
+}
+
+.orderSummaryTable td {
+padding: 5px 0 5px 6px;
+border-bottom: 1px solid #F3F3F3;
+}
+
+.copyright {
+font: 13px/1.3 arial,sans-serif;
+font-size: 80% 9;
+float: right;
+padding: 6px 9px;
+color: white;
+}
+
+.location{
+font-size:87%;
+}
+
+.tableBorder{
+float: left;
+border: 1px solid #d6d6d6;
+padding: 10px 0;
+}
+
+.orderdeatilstext{
+padding-bottom: 5px;
+margin-left: 9px;
+margin-top: 20px;
+}
+
+.orderHeaderDetails{
+float: left;
+width: 936px;
+background-color: transparent;
+padding: 10px 10px;
+}
+
+.orderDetailContainer{
+float:left;
+}
+
+.customerAddress, .customerInformation, .capatchaDetailContainer{
+float: left;
+margin: 7px 15px;
+width: 255px;
+}
+
+.capatchaInfo span, .customerAddress span{
+line-height: 19px;
+word-wrap: break-word;
+}
+
+.customerInformationContainer{
+margin: 0 0 0 9px;
+float: left;
+width: 571px;
+border: 1px solid rgb(209, 209, 209);
+background-color: rgb(238, 238, 238);
+height: 195px;
+}
+
+.sellerdata{
+width: 40%;
+float: right;
+}
+
+.orderContainer{
+width: 30%;
+float:left;
+}
+
+.confirmterms{
+text-align: center;
+}
+
+.orderTitle{
+font-size: 13px;
+font-weight: bold;
+color: rgb(78, 77, 77);
+}
+
+.orderValue{
+font-size: 13px;
+color: rgb(95, 91, 91);
+font-style: normal;
+}
+
+.odrValue{
+margin-left: 83px;
+font-style: normal;
+}
+
+tbody#status_table{
+    /* resets the counter variable back to 1, in every tbody element */
+    counter-reset: num;
+}
+
+tbody#status_table tr.serial td:first-child::before {
+    counter-increment: num; /* increments the named ('num') counter by one */
+    content: counter(num); /* sets the content to value held in the 'num' counter */
+}
+
+
+.cnt_btn{
+width: 84.5%;
+overflow: hidden;
+margin: 12% 0 0 40%;
+}
+
+.congrats{
+color: rgb(3, 129, 3);
+font-size: 17px;
+font-style: normal;
+font-weight: bold;
+}
+
+.odrdetail{
+font-size: 14px;
+font-weight: normal;
+}
+
+.formalign{
+margin: 10px 0 0 115px;
+}
+
+.termsalign{
+margin: 0 0 0 20%;
+}
+
+textarea {
+     resize:none;
+}
+
+
+/*-------------------------------------capatcha----------------------------------------------------*/
+
+.capatchaContainer{
+float: left;
+width: 386px;
+border: 1px solid rgb(209,209,209);
+background-color: rgb(238,238,238);
+height: 195px;
+position: relative;
+margin: 0;
+border-left: 0;
+}
+
+#confirmOrderBtn{
+margin: 30px 0 0 74px;
+}
+
+.capatchaDetailContainer{
+width: 94.2%;
+border: 1px solid rgb(165,163,163);
+background-color: #f8f8f8;
+height: 122px;
+}
+
+.textCaptcha{
+background-image: url(images/1.JPG);
+text-align: center;
+border: none;
+font-weight: bold;
+height: 40px;
+width: 136px;
+float: left;
+margin: 6px 0px 0px 36px;
+color:black;
+}
+
+#txtCaptchaValue{
+display:block;
+height: 40px;
+width: 136px;
+margin-top: 10px;
+}
+
+.captaTextValue{
+margin: 13px 0 0 33px;
+float: left;
+}
+
+#btnrefresh{
+float: left;
+width: 21px;
+height: 21px;
+background-image: url(images/refresh.png);
+margin: 19px 0 0 6px;
+}
+
+.capatchaDetail{
+width: 43.6%;
+float: left;
+}
+
+.capatchaValue{
+margin: 19px 0 0 31px;
+float: left;
+}
+
+#txtInput{
+border: 1px solid #ADA8A8;
+border-radius: 0;
+width: 143px;
+margin-left: 5px;
+}
+
+.capatchaInfo{
+border-left: 1px dotted rgb(150,148,148);
+float: left;
+width: 56%;
+height: 122px;
+}
+
+.verifyOrder{
+font-size: 15px;
+font-weight: bold;
+text-align: center;
+margin: 18px 84px;
+float: left;
+}
+
+.verifyText{
+float: left;
+}
+

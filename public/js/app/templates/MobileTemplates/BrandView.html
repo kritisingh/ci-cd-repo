@@ -1,0 +1,6 @@
+<ul class="homePageMenu catMenu">
+  <li class="menuHeader"><span class="menuBarDeptLabel">Electronics Brands</span></li>
+  <% collection.forEach(function(brand){ %>
+    <li><a href="#brand/<%= brand.toJSON()._id %>"><span class="menuBarDeptLabel"><%= brand.toJSON().name %></span></a></li>
+  <% }); %>
+</ul>

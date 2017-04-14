@@ -1,0 +1,28 @@
+<div class="subMenuBarBtns">
+  <div class="bradFilterBtn">
+    <span class="filterIcon"></span>
+  </div>
+</div>
+<div class="filtersContainer">
+  <div class="filtersPopup">
+	  <div class="filtersContainerBtns">
+	    <div class="btn btn-success filterList">Apply</div>
+	    <div class="btn btn-success close">Cancel</div>
+	  </div>
+	  <div class="filterAttributes">
+		  <div class="brandsFilters">
+		    <div class="filters_div">Categories</div>
+		    <ul class="display" brandId="<%= _id %>">
+		      <% _.each(categories, function(cat) { %>
+			<% if(cat.categoryType==="BRICK"){ %>
+			<li id="<%= cat._id %>" brandId="<%= _id %>">
+				<label class="checkbox">
+				<input type="checkbox" id="optionsCheckbox" value="option1"><%= cat.name %>
+				</label>
+			</li>
+		      <% }}); %>
+		    </ul>
+		  </div>
+	  </div>
+  </div>
+</div>

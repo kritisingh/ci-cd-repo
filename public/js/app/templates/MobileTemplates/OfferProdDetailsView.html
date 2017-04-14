@@ -1,0 +1,46 @@
+<div class="containerdiv">
+	<div class="prodImgContainer">
+		<div class="largeImgContainer">
+		  <% _.each(imagePaths, function(img) {
+			if((img.imageSize==="353-300")&&(img.imageType==="angle-1")){%>
+			<img id="loadingImg" src="http://cdn2.bcdsn.net/mycitykart/css/images/bx_loader.gif">
+			<img id="prodImg" src="<%= img.path %>">
+		  <% }}); %>
+		</div>
+		<div class="smallImgContainer">
+			<% _.each(imagePaths, function(imgSize) {
+				if(imgSize.imageSize==="79-67"){ var angle = imgSize.imageType; %>
+					<% _.each(imagePaths, function(imgAngle) {
+						if((imgAngle.imageType===angle)&&(imgAngle.imageSize==="353-300")){ %>
+							<img data-src="<%= imgAngle.path %>" src="<%= imgSize.path %>"/>
+					<% }}); %>
+			<% }}); %>
+		</div>
+	</div>
+        <div class="horizontalDivider1"></div>
+	<div class="product_detail_div" usp="<%= sellers[0].unitSellingPrice %>" mrp="<%= sellers[0].marketPrice %>">
+		<h1 id="<%= _id %>" city="<%= sellers[0].city%>" item="<%= _id %>" class="tradeItem"><%= tradeItemName %></h1>
+                <h6>By : <%= item.brandId.name %></h6>
+<div class="priceContainer">
+			<% if(sellers[0].marketPrice === sellers[0].unitSellingPrice){ %>
+			    <h4 class="OfferPrice" offerPrice="<%= sellers[0].unitSellingPrice %>">Offer Price : Rs. <span class="unitSellingPrice"><%= sellers[0].unitSellingPrice %></h4>
+			<% }else{ %>
+			    <h4 class="MRP" marketPrice="<%= sellers[0].marketPrice %>" >MRP : Rs. <span class="mrp"><%= sellers[0].marketPrice %></span></h4>
+			    <h4 class="OfferPrice" offerPrice="<%= sellers[0].unitSellingPrice %>">Offer Price : Rs. <span class="unitSellingPrice"><%= sellers[0].unitSellingPrice %></h4>
+			<% } %>
+                        <div class="cartSuccessMsgContainer">
+                           <div class='cartSuccessMsg'>Item is added successfully to cart</div>
+                        </div>
+		</div>
+		<div id="addtocartBtn" class="btn btn-success buy_button Button" sellerid="<%= sellers[0].sellerId._id %>" style="margin-top:20px;">Add to cart</div>
+	</div>
+</div>
+<div class="containerdiv bestSellerContainer">
+	
+</div>
+<ul class="containerdiv sellerList">
+
+</ul>
+<div class="containerdiv prodSpecContainer">
+
+</div>

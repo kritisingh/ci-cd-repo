@@ -1,0 +1,150 @@
+<div class="content">
+	<div class="steps">
+		<div class="step"><span class="stepText">1. Shipping Details</span></div><div class="arrow"></div>
+		<div class="stepSelect"><span class="stepText">2. Confirm Order</span></div><div class="arrowSelect"></div>
+		<div class="step"><span class="stepText">3. Payment</span></div>
+	</div>
+	<!--<div class="promotionCodeContainer">
+		<span class="promotionCodeLabel">Do you have a promo code? </span></br>
+		<span style="float: left;"><input id="promotionCode" type="text" class="promotionCode"></span>
+		<a id="promotionCodeBtn" class="btn promotionCodeBtn">Apply</a>
+	</div>--><% var totalAmt=0;grandTotal=0;%>
+        <div class="orderdeatilstext segoe">Order Details:</div>
+         <% _.each(order, function(odr) {%>
+		 <div class="orderDetailContainer">
+		 <table class="confirmOrderDetails" border="0" cellpadding="0" cellspacing="0" width="100%" >
+		  <tbody>
+		    <tr>
+			<td>
+			  <div class="orderHeaderDetails">
+				<div class="orderContainer">
+				    <span class="orderTitle">Order #: </span>
+                                    <span class="orderValue"><%= odr.orderHeader.orderNumber %></span><br>
+                                     <%
+						var date=odr.orderHeader.orderDate;
+						var obj=new Date(date);
+						obj.toString('yyyy-MM-dd');       //returns "2009-06-29" in IE, but not FF or Chrome
+						obj.toString('dddd, MMMM ,yyyy');
+						var curr_date = obj.getDate();
+						var curr_month = obj.getMonth() + 1; //Months are zero based
+						var curr_year = obj.getFullYear();
+						var newdate=(curr_date + "-" + curr_month + "-" + curr_year);
+				     %>
+				    <span class="orderTitle">Order Date:</span>
+                                    <span class="orderValue"><%= newdate %></span>
+                                </div>
+                                <div class="sellerdata">
+                                   <span class="orderTitle">Seller Name:</span>
+                                   <span class="orderValue"><%= odr.orderHeader.seller.sellerShortName %></span><br>
+                                </div>
+                          </div> 
+			</td>
+		    </tr>
+		    <tr>
+		      <td>
+			<table cellpadding="0" cellspacing="0" class="orderdetailsdata segoe" width="100%" >
+			  <tbody id="status_table">
+			    <tr>
+			      <td class="common" align="center" width="36">Sr.No.</td>
+			      <td class="common" width="310" align="center">Item name</td>
+			      <td class="common" width="75" align="center">Unit Price &#x20B9;</td>
+			      <td class="common" width="75" align="center">Quantity</td>
+			      <td class="common" width="75" align="center">Price &#x20B9;</td>
+			    </tr>
+                            <%  var amtPayable=0; var tamt=0; var Total=0; 
+                           	_.each(odr.orderLines, function(orderLine) {
+ 				totalAmt = totalAmt + (orderLine.orderQty)*(orderLine.unitSellingPrice);
+                                tamt = tamt + (orderLine.orderQty)*(orderLine.unitSellingPrice);
+                                Total = (tamt).toFixed(2);
+                              %>
+			    <tr class="serial">
+			      <td align="center"></td>
+			      <td align="left" id="<%= odr.orderLines[0].tradeItem._id %>"><%= orderLine.tradeItem.tradeItemName %><br></td>
+			      <td align="right">Rs.<%= orderLine.unitSellingPrice.toFixed(2) %></td>
+			      <td align="center"><%= orderLine.orderQty %></td>
+                              <% var amt =0;
+				 amt = orderLine.unitSellingPrice * orderLine.orderQty;
+                               %>
+			      <td align="right">Rs.<%= amt.toFixed(2) %></td>
+			    </tr><% }); %>
+			  </tbody>
+			</table>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td bgcolor="#dedede" height="8"></td>
+		    </tr>
+		    <tr>
+		       <td bgcolor="#f8f8f8">
+			 <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			   <tbody>
+			     <tr>
+			       <td  align="right"  valign="top" class="segoe totalprice">
+				 <table border="0" cellpadding="0" cellspacing="0" style="margin: 5px 1px 1px 5px;">
+				   <tbody>
+				     <tr>
+				       <td width="200" align="right" height="24">Total Amount</td>
+				       <td align="right" width="100">Rs. <span id="deal-total-selling-price"><%= Total %></span></td>
+				     </tr>
+				     <tr>
+				       <td colspan="2" style="border-top:1px solid #ccc;" class="line"></td>
+				     </tr>
+				     <tr>
+				       <td width="200" align="right" height="24" style="font-size:15px;"><strong>Paid Amount</strong></td>
+				       <td align="right" style="font-size:15px;">Rs.<span id="total-payable-amount" style="font-weight: bold;"><%= Total %></span></td>
+				     </tr>
+				   </tbody>
+				 </table>
+			       </td>
+			     </tr>
+			  </tbody>
+			</table>
+		      </td>
+		    </tr>
+		  </tbody>
+		</table>
+		</div>
+	<% }); %>
+        <div class="customerInformationContainer">
+		<div class="customerInformation">
+			 <span class="fnt-tahoma"><strong>Customer Information</strong>: </span><br>
+			 <span class="cusadd"><strong>Name:&nbsp;<%= order[0].orderHeader.buyerParty.person.fullName %></strong><br>Mobile:&nbsp;<%= order[0].orderHeader.buyerParty.contactNumber[0].contactNum%> <br>Email:&nbsp;<%= order[0].orderHeader.buyerParty.electronicAddress[0].eAddress%> 
+		          </span><br><br>
+		</div>
+		<div class="customerAddress">
+		         <span class="fnt-tahoma"><strong>Shipping Information</strong>: </span><br>
+			 <span class="cusadd add1">Address:&nbsp;<%= order[0].orderHeader.buyerPartyAddress.addressLine1 %>
+		          </span>
+		</div>	
+        </div>
+
+       <div class="capatchaContainer">
+           <% var gTotal=0;
+	     gTotal=grandTotal+  totalAmt;
+             var grandTotal =(gTotal).toFixed(2);
+           %>
+           <% var now = new Date(), hour = now.getHours(), today = now.getTime(), nextday = new Date();
+               var day=nextday.getDate();
+               nextday.setDate(day+1);
+           %>
+           <% 
+                var newdate=now.toISOString();
+		var nextdate=nextday.toISOString();
+		%>
+           <div class="deliverySlotsContainer">
+               <div class="deliverySlotsHeader fnt-tahoma">Choose delivery time slot :</div>
+               <% if (hour <= 10) { %>
+                  <div class="timeSlot"><input type="checkbox" checked id="10AM" date="<%=newdate%>">1:00pm to 3:00pm (Today)</div>
+                  <div class="timeSlot"><input type="checkbox" id="16PM" date="<%=newdate%>">7:00pm to 9:00pm (Today)</div>
+              <% } else if ((hour >= 10) && ((hour <= 15))) { %>
+                 <div class="timeSlot"><input type="checkbox" checked id="16PM" date="<%=newdate%>">7:00pm to 9:00pm (Today)</div>
+                 <div class="timeSlot"><input type="checkbox" id="10AM" date="<%=nextdate%>">1:00pm to 3:00pm (Tomorrow)</div>
+              <% } else if (hour >= 15) { %>
+                 <div class="timeSlot"><input type="checkbox" checked id="10AM" date="<%=nextdate%>">1:00pm to 3:00pm (Tomorrow)</div>
+                 <div class="timeSlot"><input type="checkbox" id="16PM" date="<%=nextdate%>">7:00pm to 9:00pm (Tomorrow)</div>
+              <% } %>
+           </div>
+           <span id="err"></span>	  
+           <a id="confirmOrderBtn" class="btn btn-success confirmOrderBtn" grandTotal="<%=grandTotal%>">Confirm Order</a>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="steps">
+	<div class="stepSelect"><span class="stepText">1. Shipping Details</span></div>
+	<div class="step"><span class="stepText">2. Confirm Order</span></div>
+	<div class="step"><span class="stepText">3. Payment</span></div>
+</div>
+<div class="contactUsFormContainer">
+	<div class="nigotiateOperationDialog">
+	     <div class="shippingDetailForm form">
+		     <ul class="nigotiateForm">
+		     	<li>
+		    	    <div class="label">Name<sup>*</sup> :</div>
+			    <div class="value"><input class="firstName mandatory" type="text" id="firstName" placeholder="First name">
+					       <input class="lastName mandatory" type="text" id="lastName" placeholder="Last name"></div>
+			</li>
+			<li>
+			   <div class="label">Mobile number<sup>*</sup> :</div>
+			   <div class="value"><input class="mbNumber mandatory" type="text" id="mobNumber"></div>
+			</li>
+			<li>
+			   <div class="label">E-mail Id<sup>*</sup> :</div>
+			   <div class="value"><input class="mailId mandatory" type="text" id="emailId"></div>
+			</li>
+			<li>
+		    	  <div class="label">City : </div>
+			  <div class="value">
+                            <select id="city">
+			       <option id="BC-PUNE">Pune</option>
+                            </select>
+		          </div>
+			</li>
+			<li>
+			   <div class="label">Pin code<sup>*</sup> :</div>
+			   <div class="value"><input class="postalCode mandatory" type="text" id="postalCode"></div>
+			</li>
+                        <li>
+		            <div class="label citylocation">Address :</div>
+			    <div class="value"><textarea id="address" name="Comments" placeholder="Address"></textarea></div>
+			</li>
+		     </ul>
+           </div>
+	    <span class="termsAndConditions">
+	      <input type="checkbox" id="terms" name="terms" value="accepet"> Accept <a class="terms_conditions">terms and conditions</a>
+	    </span>
+	    <div id="err"></div>
+	    <div class="AddBtn">
+		<button id='continue' class='btn-success btn okBtn'>Continue</button>
+	    </div>
+	</div>
+</div>

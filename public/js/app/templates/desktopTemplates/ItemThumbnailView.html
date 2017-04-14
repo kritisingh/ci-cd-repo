@@ -1,0 +1,41 @@
+<div class="ThumbnailContainer">
+  <div class="productItem" id="<%= _id %>">
+    <a class="thumbnailImg">
+      <% _.each(imagePaths, function(img) {
+        if(img.imageSize==="180-180"){ %>
+	<img src="<%= img.path %>" onError="this.onerror=null;this.src='../pics/No_image_available2.png';">
+      <% }}); %>
+      <div class="quickViewBtn">Quick Look</div>
+      <span class='cartSuccessMsg'>Item is added successfully to cart</span>
+    </a></br>
+    <div class="productListText">
+      <% if (tradeItems[0].tradeItemName.length > 70) { var name1 = tradeItems[0].tradeItemName.substring(0,70) + "...";} else {var name1 = tradeItems[0].tradeItemName;} %>
+      <h4><a><%= name1 %></a></h4>
+    </div>
+    <div class="itemVarientsContainer">
+      <% _.each(tradeItems, function(item,index) {
+      if(item.itemStatus==="ACTIVE"){
+	if(index===0){%>
+		<span mrp="<%= item.sellers[0].marketPrice %>" usp="<%= item.sellers[0].unitSellingPrice %>" id="<%= item._id %>" tradeItemName="<%= item.tradeItemName %>"><%=item.variantAttributes[0].attrValue%><%=item.variantAttributes[0].attrUOM%></span><% }else{ %>
+		|&nbsp<span mrp="<%= item.sellers[0].marketPrice %>" usp="<%= item.sellers[0].unitSellingPrice %>" id="<%= item._id %>" tradeItemName="<%= item.tradeItemName %>"><%=item.variantAttributes[0].attrValue%><%=item.variantAttributes[0].attrUOM%></span>
+      <% }}}); %>
+    </div>
+    <br><br>
+    <div class="productPrice">
+      <% if (tradeItems[0].sellers[0].marketPrice === tradeItems[0].sellers[0].unitSellingPrice ) { %>
+      <div class="rsOfferPrice">Rs.<span class="offerPrice"><%= tradeItems[0].sellers[0].unitSellingPrice %></span></div>
+      <% } else { %>
+      <% var discount = (100*((tradeItems[0].sellers[0].marketPrice - tradeItems[0].sellers[0].unitSellingPrice )/tradeItems[0].sellers[0].marketPrice)); %>
+      <div class="rsMRP">Rs.<span class="mrp"><%= tradeItems[0].sellers[0].marketPrice %></span></div>
+      <div class="rsOfferPrice">Rs.<span class="offerPrice"><%= tradeItems[0].sellers[0].unitSellingPrice %></span>
+        <div class="discountImg"><img src="http://cdn2.bcdsn.net/mycitykart/pics/offer-strap-6.png"/><span class="offerdiscount">&nbsp <%= Math.round(discount) %>% </span></div>
+      </div>
+      <% } %>
+    </div>
+    <div id="thumbnailAddToCartBtn" class="btn btn-success Button btnCart" sellerId="<%= tradeItems[0].sellers[0].sellerId._id %>">Add to Cart</div>
+  </div>
+  <div class="loadingIconContainer">
+    <img src="http://cdn2.bcdsn.net/mycitykart/css/images/bx_loader.gif" />
+  </div>
+</div>
+

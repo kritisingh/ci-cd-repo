@@ -1,0 +1,32 @@
+<a href="#<%= pageType %>/<%= _id %>">
+  <div class="thumbnailImg">
+  <% _.each(imagePaths, function(img) {
+    if(img.imageSize==="180-180"){ %>
+      <img src="<%= img.path %>">
+  <% }}); %>
+  </div>
+  <div class="productListText">
+    <% if((name.length) > 80){ %>
+      <h4><%= name.slice(0, 79) %>...</h4>
+    <%}else{%> <h4><%= name %></h4> <%}%>
+  </div>
+  <div class="itemVarientsContainer">
+      <% _.each(tradeItems, function(item,index) {
+      if(item.itemStatus==="ACTIVE"){
+	if(index===0){%>
+		<span mrp="<%= item.marketPrice %>" usp="<%= item.sellers[0].unitSellingPrice %>" id="<%= item._id %>"><%=item.variantAttributes[0].attrValue%><%=item.variantAttributes[0].attrUOM%></span><% }else{ %>
+		|&nbsp<span mrp="<%= item.marketPrice %>" usp="<%= item.sellers[0].unitSellingPrice %>" id="<%= item._id %>"><%=item.variantAttributes[0].attrValue%><%=item.variantAttributes[0].attrUOM%></span>
+      <% }}}); %>
+  </div>
+  <% if(tradeItems[0].sellers[0].marketPrice===tradeItems[0].sellers[0].unitSellingPrice){ %>
+    <div class="OfferPrice">Rs. <%= tradeItems[0].sellers[0].unitSellingPrice %></div>
+  <% }else{ %>
+  <% var discount = (100*((tradeItems[0].sellers[0].marketPrice - tradeItems[0].sellers[0].unitSellingPrice )/tradeItems[0].sellers[0].marketPrice)); %>
+    <div class="MRP">Rs. <%= tradeItems[0].sellers[0].marketPrice %></div>
+    <div class="OfferPrice">Rs. <%= tradeItems[0].sellers[0].unitSellingPrice %>
+     <% if(tradeItems[0].sellers[0].discount !==0){ %>    
+           <span class="discount">&nbsp( <%= Math.round(discount) %>% )</span>
+       <% } %>
+    </div>
+  <% } %>
+</a>
